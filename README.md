@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-
-# Apex
-
-# Apex Website
