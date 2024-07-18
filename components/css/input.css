@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .circleProp {
+        @apply absolute block w-[26px] h-[26px] rounded-[20px] bg-white;
+    }
+
+    .softImg {
+        @apply absolute w-full h-full top-0 left-0 object-contain;
+    }
+}
+
+@layer base {
+    :root {
+        --primary-color: #fff;
+        --secondary-color: #F96613;
+        --btn-glass: rgba(255, 255, 255, 0.1);
+    }
+}

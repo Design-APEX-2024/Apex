@@ -1,2 +1,5 @@
+<<<<<<< HEAD
+
 # Apex
-Apex Website
+
+# Apex Website
