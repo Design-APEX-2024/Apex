@@ -22,14 +22,14 @@ let saturn_orbit_radius = 120;
 let uranus_orbit_radius = 140;
 let neptune_orbit_radius = 160;
 
-let mercury_revolution_speed = 2;
-let venus_revolution_speed = 1.5;
-let earth_revolution_speed = 1;
+let mercury_revolution_speed = 1;
+let venus_revolution_speed = 0.9;
+let earth_revolution_speed = 1.1;
 let mars_revolution_speed = 0.8;
-let jupiter_revolution_speed = 0.7;
-let saturn_revolution_speed = 0.6;
-let uranus_revolution_speed = 0.5;
-let neptune_revolution_speed = 0.4;
+let jupiter_revolution_speed = 0.5;
+let saturn_revolution_speed = 1;
+let uranus_revolution_speed = 0.35;
+let neptune_revolution_speed = 0.3;
 
 function createMaterialArray() {
   const skyboxImagepaths = [
@@ -54,26 +54,32 @@ function setSkyBox() {
   scene.add(skybox);
 }
 
-function loadPlanetTexture(
-  texture,
-  radius,
-  widthSegments,
-  heightSegments,
-  meshType
-) {
-  const geometry = new THREE.SphereGeometry(
-    radius,
-    widthSegments,
-    heightSegments
-  );
+function createPlanetMaterialArray(texturePath) {
   const loader = new THREE.TextureLoader();
-  const planetTexture = loader.load(texture);
-  const material =
-    meshType === "standard"
-      ? new THREE.MeshStandardMaterial({ map: planetTexture })
-      : new THREE.MeshBasicMaterial({ map: planetTexture });
+  const texture = loader.load(texturePath);
 
-  const planet = new THREE.Mesh(geometry, material);
+  const materials = [];
+  for (let i = 0; i < 6; i++) {
+    materials.push(new THREE.MeshStandardMaterial({ map: texture }));
+  }
+
+  return materials;
+}
+
+function loadPlanetTexture(texturePath, size, isSun = false) {
+  const geometry = new THREE.BoxGeometry(size, size, size);
+  const materialArray = createPlanetMaterialArray(texturePath);
+
+  if (isSun) {
+    for (let i = 0; i < materialArray.length; i++) {
+      materialArray[i] = new THREE.MeshBasicMaterial({
+        map: new THREE.TextureLoader().load(texturePath),
+        emissive: 0xffffff,
+      });
+    }
+  }
+
+  const planet = new THREE.Mesh(geometry, materialArray);
   return planet;
 }
 
@@ -105,68 +111,21 @@ function init() {
   );
 
   setSkyBox();
-  planet_earth = loadPlanetTexture(
-    "../images/earth_hd.jpg",
-    4,
-    100,
-    100,
-    "standard"
-  );
-  planet_sun = loadPlanetTexture("../images/sun_hd.jpg", 20, 100, 100, "basic");
-  planet_mercury = loadPlanetTexture(
-    "../images/mercury_hd.jpg",
-    2,
-    100,
-    100,
-    "standard"
-  );
-  planet_venus = loadPlanetTexture(
-    "../images/venus_hd.jpg",
-    3,
-    100,
-    100,
-    "standard"
-  );
-  planet_mars = loadPlanetTexture(
-    "../images/mars_hd.jpg",
-    3.5,
-    100,
-    100,
-    "standard"
-  );
-  planet_jupiter = loadPlanetTexture(
-    "../images/jupiter_hd.jpg",
-    10,
-    100,
-    100,
-    "standard"
-  );
-  planet_saturn = loadPlanetTexture(
-    "../images/saturn_hd.jpg",
-    8,
-    100,
-    100,
-    "standard"
-  );
-  planet_uranus = loadPlanetTexture(
-    "../images/uranus_hd.jpg",
-    6,
-    100,
-    100,
-    "standard"
-  );
-  planet_neptune = loadPlanetTexture(
-    "../images/neptune_hd.jpg",
-    5,
-    100,
-    100,
-    "standard"
-  );
 
-  scene.add(planet_earth);
+  planet_sun = loadPlanetTexture("../images/sun_hd.png", 20, true);
+  planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 2);
+  planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 3);
+  planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 4);
+  planet_mars = loadPlanetTexture("../images/mars_hd.jpg", 3.5);
+  planet_jupiter = loadPlanetTexture("../images/jupiter_hd.jpg", 10);
+  planet_saturn = loadPlanetTexture("../images/saturn_hd.jpg", 8);
+  planet_uranus = loadPlanetTexture("../images/uranus_hd.jpg", 6);
+  planet_neptune = loadPlanetTexture("../images/neptune_hd.jpg", 5);
+
   scene.add(planet_sun);
   scene.add(planet_mercury);
   scene.add(planet_venus);
+  scene.add(planet_earth);
   scene.add(planet_mars);
   scene.add(planet_jupiter);
   scene.add(planet_saturn);
@@ -240,10 +199,10 @@ function animate(time) {
   requestAnimationFrame(animate);
 
   const rotationSpeed = 0.005;
-  planet_earth.rotation.y += rotationSpeed;
   planet_sun.rotation.y += rotationSpeed;
   planet_mercury.rotation.y += rotationSpeed;
   planet_venus.rotation.y += rotationSpeed;
+  planet_earth.rotation.y += rotationSpeed;
   planet_mars.rotation.y += rotationSpeed;
   planet_jupiter.rotation.y += rotationSpeed;
   planet_saturn.rotation.y += rotationSpeed;
