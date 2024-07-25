@@ -1,6 +1,11 @@
 {
+  "scripts": {
+    "dev": "npx tailwindcss -i ./components/css/input.css -o ./components/css/output.css --watch"
+  },
   "devDependencies": {
-    "tailwindcss": "^3.4.4"
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.6"
   },
   "dependencies": {
     "vanilla-tilt": "^1.8.1"
