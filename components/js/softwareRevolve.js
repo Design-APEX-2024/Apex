@@ -22,14 +22,14 @@ let saturn_orbit_radius = 120;
 let uranus_orbit_radius = 140;
 let neptune_orbit_radius = 160;
 
-let mercury_revolution_speed = 1;
-let venus_revolution_speed = 0.9;
-let earth_revolution_speed = 1.1;
-let mars_revolution_speed = 0.8;
-let jupiter_revolution_speed = 0.5;
-let saturn_revolution_speed = 1;
-let uranus_revolution_speed = 0.35;
-let neptune_revolution_speed = 0.3;
+let mercury_revolution_speed = 0.3; // Slower revolution speed
+let venus_revolution_speed = 0.25; // Slower revolution speed
+let earth_revolution_speed = 0.20; // Slower revolution speed
+let mars_revolution_speed = 0.10; // Slower revolution speed
+let jupiter_revolution_speed = 0.2; // Slower revolution speed
+let saturn_revolution_speed = 0.26; // Slower revolution speed
+let uranus_revolution_speed = 0.34; // Slower revolution speed
+let neptune_revolution_speed = 0.24; // Slower revolution speed
 
 function createMaterialArray() {
   const skyboxImagepaths = [
@@ -53,18 +53,6 @@ function setSkyBox() {
   let skyboxGeo = new THREE.BoxGeometry(1000, 1000, 1000);
   skybox = new THREE.Mesh(skyboxGeo, materialArray);
   scene.add(skybox);
-}
-
-function createPlanetMaterialArray(texturePath) {
-  const loader = new THREE.TextureLoader();
-  const texture = loader.load(texturePath);
-
-  const materials = [];
-  for (let i = 0; i < 6; i++) {
-    materials.push(new THREE.MeshStandardMaterial({ map: texture }));
-  }
-
-  return materials;
 }
 
 function loadPlanetTexture(texturePath, width, height, isSun = false) {
@@ -92,8 +80,8 @@ function loadPlanetTexture(texturePath, width, height, isSun = false) {
       alphaTest: 0.1 // Adjust as needed to handle semi-transparent pixels
     });
   } else {
-    // For other planets, use the material array
-    material = new THREE.MeshStandardMaterial({ map: texture });
+    // For other planets, use MeshBasicMaterial to avoid shadows
+    material = new THREE.MeshBasicMaterial({ map: texture });
   }
 
   const planet = new THREE.Mesh(geometry, material);
@@ -129,16 +117,16 @@ function init() {
 
   setSkyBox();
 
-  // Use width of 50 and height of 30 to make the Sun wider than it is tall
+  // Adjust sizes of planets with minimal size differences
   planet_sun = loadPlanetTexture("../images/logo_2c.png", 50, 30, true);
-  planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 2, 2);
-  planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 3, 3);
-  planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 4, 4);
-  planet_mars = loadPlanetTexture("../images/mars_hd.jpg", 3.5, 3.5);
+  planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 4, 4);
+  planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 5, 5);
+  planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 6, 6);
+  planet_mars = loadPlanetTexture("../images/mars_hd.jpg", 7, 7);
   planet_jupiter = loadPlanetTexture("../images/jupiter_hd.jpg", 10, 10);
-  planet_saturn = loadPlanetTexture("../images/saturn_hd.jpg", 8, 8);
-  planet_uranus = loadPlanetTexture("../images/uranus_hd.jpg", 6, 6);
-  planet_neptune = loadPlanetTexture("../images/neptune_hd.jpg", 5, 5);
+  planet_saturn = loadPlanetTexture("../images/saturn_hd.jpg", 12, 12);
+  planet_uranus = loadPlanetTexture("../images/uranus_hd.jpg", 14, 14);
+  planet_neptune = loadPlanetTexture("../images/neptune_hd.jpg", 16, 16);
 
   scene.add(planet_sun);
   scene.add(planet_mercury);
@@ -171,8 +159,8 @@ function init() {
   renderer.domElement.id = "c";
 
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.minDistance = 50;
-  controls.maxDistance = 150; // Set maximum zoom-out distance
+  controls.minDistance = 12;
+  controls.maxDistance = 500; // Set maximum zoom-out distance
 
   const cameraPositions = [
     { x: -100, y: 50, z: -100 },
@@ -277,17 +265,8 @@ function animate(time) {
     neptune_orbit_radius
   );
 
-  controls.update();
   renderer.render(scene, camera);
 }
-
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-window.addEventListener("resize", onWindowResize, false);
 
 init();
 animate();
