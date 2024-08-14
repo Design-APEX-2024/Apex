@@ -66,20 +66,36 @@ function createPlanetMaterialArray(texturePath) {
   return materials;
 }
 
-function loadPlanetTexture(texturePath, size, isSun = false) {
-  const geometry = new THREE.BoxGeometry(size, size, size);
-  const materialArray = createPlanetMaterialArray(texturePath);
-
+function loadPlanetTexture(texturePath, width, height, isSun = false) {
+  let geometry;
   if (isSun) {
-    for (let i = 0; i < materialArray.length; i++) {
-      materialArray[i] = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load(texturePath),
-        emissive: 0xffffff,
-      });
-    }
+    // Set width and height for the Sun's plane
+    geometry = new THREE.PlaneGeometry(width, height);
+  } else {
+    // Use box geometry for other planets
+    geometry = new THREE.BoxGeometry(width, width, width);
   }
 
-  const planet = new THREE.Mesh(geometry, materialArray);
+  const texture = new THREE.TextureLoader().load(texturePath, function(texture) {
+    texture.minFilter = THREE.LinearFilter; // Ensure texture is correctly loaded
+  });
+
+  let material;
+  if (isSun) {
+    // For the Sun, use a single material with transparency support
+    material = new THREE.MeshBasicMaterial({
+      map: texture,
+      emissive: 0xffffff,
+      transparent: true,
+      side: THREE.DoubleSide,
+      alphaTest: 0.1 // Adjust as needed to handle semi-transparent pixels
+    });
+  } else {
+    // For other planets, use the material array
+    material = new THREE.MeshStandardMaterial({ map: texture });
+  }
+
+  const planet = new THREE.Mesh(geometry, material);
   return planet;
 }
 
@@ -112,15 +128,16 @@ function init() {
 
   setSkyBox();
 
-  planet_sun = loadPlanetTexture("../images/sun_hd.png", 20, true);
-  planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 2);
-  planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 3);
-  planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 4);
-  planet_mars = loadPlanetTexture("../images/mars_hd.jpg", 3.5);
-  planet_jupiter = loadPlanetTexture("../images/jupiter_hd.jpg", 10);
-  planet_saturn = loadPlanetTexture("../images/saturn_hd.jpg", 8);
-  planet_uranus = loadPlanetTexture("../images/uranus_hd.jpg", 6);
-  planet_neptune = loadPlanetTexture("../images/neptune_hd.jpg", 5);
+  // Use width of 50 and height of 30 to make the Sun wider than it is tall
+  planet_sun = loadPlanetTexture("../images/logo_2c.png", 50, 30, true);
+  planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 2, 2);
+  planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 3, 3);
+  planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 4, 4);
+  planet_mars = loadPlanetTexture("../images/mars_hd.jpg", 3.5, 3.5);
+  planet_jupiter = loadPlanetTexture("../images/jupiter_hd.jpg", 10, 10);
+  planet_saturn = loadPlanetTexture("../images/saturn_hd.jpg", 8, 8);
+  planet_uranus = loadPlanetTexture("../images/uranus_hd.jpg", 6, 6);
+  planet_neptune = loadPlanetTexture("../images/neptune_hd.jpg", 5, 5);
 
   scene.add(planet_sun);
   scene.add(planet_mercury);
@@ -199,7 +216,9 @@ function animate(time) {
   requestAnimationFrame(animate);
 
   const rotationSpeed = 0.005;
-  planet_sun.rotation.y += rotationSpeed;
+  // Keep the Sun facing the camera
+  planet_sun.lookAt(camera.position);
+
   planet_mercury.rotation.y += rotationSpeed;
   planet_venus.rotation.y += rotationSpeed;
   planet_earth.rotation.y += rotationSpeed;

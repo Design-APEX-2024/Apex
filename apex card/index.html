@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex - Animator Professionalism Editor Xcellence</title>
+    <link rel="icon" href="./components/images/title_Logo.png" />
+    <meta
+      name="description"
+      content="APEX is the esteemed design society of TIPS, Dwarka, dedicated to elevating the field of design to new heights. With a large and active membership, we have conducted numerous workshops to enhance our skills. Our members utilize a variety of Adobe design software, including Photoshop, Illustrator, and InDesign, to create innovative and impactful designs."
+    />
+    <meta name="keywords" content="APEX, designing, designers, editing, apex" />
+    <link href="./components/css/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./components/css/style.css" />
+  </head>
+  <body>
+    <!-- /* ~~~~~~~~~~~~~~~~~~~  CURSOR STYLING  ~~~~~~~~~~~~~~~~~~~~~ */ -->
+    <div
+      class="cursor pointer-events-none fixed block rounded-none mix-blend-difference top-0 left-0 z-Infinity scale[1]"
+    >
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+      <div class="circle circleProp"></div>
+    </div>
+
+    <!-- /* ~~~~~~~~~~~~~~~~~~~ BACKGROUND VIDEO ~~~~~~~~~~~~~~~~~~~~~ */ -->
+    <div class="bgVideo">
+      <video autoplay muted loop>
+        <source src="./components/images/bgVid.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- /* ~~~~~~~~~~~~~~~~~~~ CARDS AREA ~~~~~~~~~~~~~~~~~~~~~ */ -->
+
+    <div>
+      <div class="topCard"></div>
+      <div class="cards text-white">
+        <div class="president">
+          <h1>President</h1>
+          <div>
+            <section class="text-gray-600 body-font"></section>
+          </div>
+        </div>
+        <div class="core">
+          <h1>Core Team</h1>
+          <div>
+            <section class=""></section>
+          </div>
+        </div>
+        <div class="members mt-10">
+          <div class="w-full flex justify-between px-24">
+            <h1 class="memhead text-5xl font-semibold">Members</h1>
+            <input
+              type="text"
+              placeholder="Search Apexians..."
+              id="searchMember"
+            />
+          </div>
+          <div>
+            <section class="text-gray-600 body-font">
+              <div class="memberContainer px-5 py-24 mx-auto">
+                <div
+                  class="flex flex-wrap -m-4 gap-10 justify-center"
+                  id="root"
+                ></div>
+                <button class="viewBtn">View All</button>
+                <div class="bottomBlur"></div>
+                <div class="bottomBlur"></div>
+                <div class="bottomBlur"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./components/js/script.js"></script>
+    <script src="./components/js/cursor.js"></script>
+  </body>
+</html>
