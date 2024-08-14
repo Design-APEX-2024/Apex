@@ -49,6 +49,7 @@ function createMaterialArray() {
 
 function setSkyBox() {
   const materialArray = createMaterialArray();
+  // Original size of the skybox
   let skyboxGeo = new THREE.BoxGeometry(1000, 1000, 1000);
   skybox = new THREE.Mesh(skyboxGeo, materialArray);
   scene.add(skybox);
@@ -170,8 +171,8 @@ function init() {
   renderer.domElement.id = "c";
 
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.minDistance = 12;
-  controls.maxDistance = 1000;
+  controls.minDistance = 50;
+  controls.maxDistance = 150; // Set maximum zoom-out distance
 
   const cameraPositions = [
     { x: -100, y: 50, z: -100 },
@@ -203,7 +204,7 @@ function init() {
   camera.position.z = 100;
 }
 
-function planetRevolver(time, speed, planet, orbitRadius, planetName) {
+function planetRevolver(time, speed, planet, orbitRadius) {
   let orbitSpeedMultiplier = 0.001;
   const planetAngle = time * orbitSpeedMultiplier * speed;
   planet.position.x =
@@ -216,8 +217,7 @@ function animate(time) {
   requestAnimationFrame(animate);
 
   const rotationSpeed = 0.005;
-  // Keep the Sun facing the camera
-  planet_sun.lookAt(camera.position);
+  planet_sun.lookAt(camera.position); // Ensure Sun always faces the camera
 
   planet_mercury.rotation.y += rotationSpeed;
   planet_venus.rotation.y += rotationSpeed;
@@ -232,57 +232,49 @@ function animate(time) {
     time,
     mercury_revolution_speed,
     planet_mercury,
-    mercury_orbit_radius,
-    "mercury"
+    mercury_orbit_radius
   );
   planetRevolver(
     time,
     venus_revolution_speed,
     planet_venus,
-    venus_orbit_radius,
-    "venus"
+    venus_orbit_radius
   );
   planetRevolver(
     time,
     earth_revolution_speed,
     planet_earth,
-    earth_orbit_radius,
-    "earth"
+    earth_orbit_radius
   );
   planetRevolver(
     time,
     mars_revolution_speed,
     planet_mars,
-    mars_orbit_radius,
-    "mars"
+    mars_orbit_radius
   );
   planetRevolver(
     time,
     jupiter_revolution_speed,
     planet_jupiter,
-    jupiter_orbit_radius,
-    "jupiter"
+    jupiter_orbit_radius
   );
   planetRevolver(
     time,
     saturn_revolution_speed,
     planet_saturn,
-    saturn_orbit_radius,
-    "saturn"
+    saturn_orbit_radius
   );
   planetRevolver(
     time,
     uranus_revolution_speed,
     planet_uranus,
-    uranus_orbit_radius,
-    "uranus"
+    uranus_orbit_radius
   );
   planetRevolver(
     time,
     neptune_revolution_speed,
     planet_neptune,
-    neptune_orbit_radius,
-    "neptune"
+    neptune_orbit_radius
   );
 
   controls.update();
@@ -298,4 +290,4 @@ function onWindowResize() {
 window.addEventListener("resize", onWindowResize, false);
 
 init();
-animate(0);
+animate();
