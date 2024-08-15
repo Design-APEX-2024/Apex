@@ -122,14 +122,18 @@ input {
 }
 nav a {
   color: #fff;
+  font-weight: 600;
+  background: #eb8812;
   text-decoration: none;
   position: absolute;
   top: 50vh;
   z-index: 1;
-  padding: 9px 27px;
+  padding: 9px 2rem;
   font-family: poppins;
   font-size: 17px;
-  border-bottom: 2px solid #fff;
+  border: 2px solid #000000;
+  box-shadow: 0 0 10px #f96613;
+  border-radius: 10rem;
   overflow: hidden;
   transition: 0.5s;
 }

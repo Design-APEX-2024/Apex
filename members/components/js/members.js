@@ -24,24 +24,24 @@ const images = [
 // content setup
 const texts = [
   ["Abhinav", "Vice President"],
-    ["Sumit", "Vice President"],
-    ["Priyanshu", "Secretory"],
-    ["Prachi", "Joint Secretory"],
-    ["Kashish", "Joint Secretory"],
-    ["Jatin", "Executive Head"],
-    ["Tanishk", "Executive Head"],
-    ["Dipanshu", "Eagle eye"],
-    ["Lakshita", "Repository Head"],
-    ["Ayush", "3D Head"],
-    ["Sushil", "VFX Head"],
-    ["Kannu", "AI Head"],
-    ["Adhyan", "Music Prod. Head"],
-    ["Khushi", "Content Head"],
-    ["Mouli", "Insta Head"],
-    ["Tamanna", "Pinterest Head"],
-    ["Pihu", "Pinterest Head"],
-    ["Vansh", "LinkedIn Head"],
-    ["Dhruv", "Website Head"]
+  ["Sumit", "Vice President"],
+  ["Priyanshu", "Secretory"],
+  ["Prachi", "Joint Secretory"],
+  ["Kashish", "Joint Secretory"],
+  ["Jatin", "Executive Head"],
+  ["Tanishk", "Executive Head"],
+  ["Dipanshu", "Eagle eye"],
+  ["Lakshita", "Repository Head"],
+  ["Ayush", "3D Head"],
+  ["Sushil", "VFX Head"],
+  ["Kannu", "AI Head"],
+  ["Adhyan", "Music Prod. Head"],
+  ["Khushi", "Content Head"],
+  ["Mouli", "Insta Head"],
+  ["Tamanna", "Pinterest Head"],
+  ["Pihu", "Pinterest Head"],
+  ["Vansh", "LinkedIn Head"],
+  ["Dhruv", "Website Head"]
 ];
 
 // init plugin
@@ -101,3 +101,10 @@ rgbKineticSlider = new rgbKineticSlider({
   textSubTitleOffsetTop: 90, // subtitle offset top
   mobileTextSubTitleOffsetTop: 90, // mobile subtitle offset top
 });
+
+// Delay application of text shadow to ensure titles are loaded
+setTimeout(() => {
+  document.querySelectorAll('.rgbKineticSlider-title').forEach((el) => {
+    el.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
+  });
+}, 100); // Adjust the delay time if necessary
