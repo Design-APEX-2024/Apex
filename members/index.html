@@ -10,6 +10,8 @@
       content="APEX is the esteemed design society of TIPS, Dwarka, dedicated to elevating the field of design to new heights. With a large and active membership, we have conducted numerous workshops to enhance our skills. Our members utilize a variety of Adobe design software, including Photoshop, Illustrator, and InDesign, to create innovative and impactful designs."
     />
     <meta name="keywords" content="APEX, designing, designers, editing, apex" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <link href="./components/css/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="./components/css/style.css" />
   </head>
@@ -43,9 +45,35 @@
       <div class="topCard"></div>
       <div class="cards text-white">
         <div class="president">
-          <h1>President</h1>
-          <div>
-            <section class="text-gray-600 body-font"></section>
+          <div class="pres-outerContainer">
+            <div class="pres-container">
+              <nav class="pres-menu">
+                <div class="pres-menu-center pres-menu-item">
+                  <div class="pres-brand-logo">Aman Pandey</div>
+                </div>
+              </nav>
+              <div class="pres-images">
+                <div class="pres-left pres-img"></div>
+                <div class="pres-right pres-img"></div>
+              </div>
+              <div class="pres-hero-image">
+                <div class="pres-wrapper-img">
+                  <div class="pres-box"></div>
+                  <div>
+                    <img
+                      class="pres-image"
+                      src="./components/images/pres/img-one.png"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="pres-header">
+                <p class="pres-title">president</p>
+              </div>
+              <div class="pres-hero-container">
+                <a href="#" class="pres-projects">Resume</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="core w-full h-screen">
@@ -90,6 +118,7 @@
     <script src="./components/js/TweenMax.min.js"></script>
     <script src="./components/js/pixi.min.js"></script>
     <script src="./components/js/rgbKineticSlider.js"></script>
+    <script src="./components/js/pres.js"></script>
     <script src="./components/js/members.js"></script>
   </body>
 </html>
