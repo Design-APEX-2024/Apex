@@ -231,6 +231,22 @@ input {
   transform: rotate(-45deg);
 }
 
+.pres-image {
+  animation: updown infinite linear 3.4s;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-1%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 /* core */
 .rgbKineticSlider {
   display: block;

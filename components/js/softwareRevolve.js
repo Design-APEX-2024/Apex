@@ -50,7 +50,7 @@ function createMaterialArray() {
 function setSkyBox() {
   const materialArray = createMaterialArray();
   // Original size of the skybox
-  let skyboxGeo = new THREE.BoxGeometry(1000, 1000, 1000);
+  let skyboxGeo = new THREE.BoxGeometry(500, 500, 500);
   skybox = new THREE.Mesh(skyboxGeo, materialArray);
   scene.add(skybox);
 }
@@ -118,7 +118,7 @@ function init() {
   setSkyBox();
 
   // Adjust sizes of planets with minimal size differences
-  planet_sun = loadPlanetTexture("../images/logo_2c.png", 50, 30, true);
+  planet_sun = loadPlanetTexture("../images/logo_2c.png", 50, 20, true);
   planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 4, 4);
   planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 5, 5);
   planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 6, 6);
@@ -159,8 +159,12 @@ function init() {
   renderer.domElement.id = "c";
 
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.minDistance = 12;
-  controls.maxDistance = 500; // Set maximum zoom-out distance
+  controls.minDistance = 40;
+  controls.maxDistance = 170; // Set maximum zoom-out distance
+
+  // Restrict vertical movement
+  controls.minPolarAngle = Math.PI / 3; // Minimum vertical angle (in radians)
+  controls.maxPolarAngle = Math.PI / 1.5; // Maximum vertical angle (in radians)
 
   const cameraPositions = [
     { x: -100, y: 50, z: -100 },
@@ -265,6 +269,7 @@ function animate(time) {
     neptune_orbit_radius
   );
 
+  controls.update();
   renderer.render(scene, camera);
 }
 
