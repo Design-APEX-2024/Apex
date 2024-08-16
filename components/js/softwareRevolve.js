@@ -118,7 +118,7 @@ function init() {
   setSkyBox();
 
   // Adjust sizes of planets with minimal size differences
-  planet_sun = loadPlanetTexture("../images/logo_2c.png", 50, 20, true);
+  planet_sun = loadPlanetTexture("../images/logo_2c.png", 70, 30, true);
   planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 4, 4);
   planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 5, 5);
   planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 6, 6);
