@@ -119,14 +119,14 @@ function init() {
 
   // Adjust sizes of planets with minimal size differences
   planet_sun = loadPlanetTexture("../images/logo_2c.png", 70, 30, true);
-  planet_mercury = loadPlanetTexture("../images/mercury_hd.jpg", 4, 4);
-  planet_venus = loadPlanetTexture("../images/venus_hd.jpg", 5, 5);
-  planet_earth = loadPlanetTexture("../images/earth_hd.jpg", 6, 6);
-  planet_mars = loadPlanetTexture("../images/mars_hd.jpg", 7, 7);
-  planet_jupiter = loadPlanetTexture("../images/jupiter_hd.jpg", 10, 10);
-  planet_saturn = loadPlanetTexture("../images/saturn_hd.jpg", 12, 12);
-  planet_uranus = loadPlanetTexture("../images/uranus_hd.jpg", 14, 14);
-  planet_neptune = loadPlanetTexture("../images/neptune_hd.jpg", 16, 16);
+  planet_mercury = loadPlanetTexture("../images/premierePro.png", 4, 4);
+  planet_venus = loadPlanetTexture("../images/illustrator.png", 5, 5);
+  planet_earth = loadPlanetTexture("../images/photoshop.png", 6, 6);
+  planet_mars = loadPlanetTexture("../images/davinci.png", 7, 7);
+  planet_jupiter = loadPlanetTexture("../images/blender.jpeg", 10, 10);
+  planet_saturn = loadPlanetTexture("../images/maya.png", 12, 12);
+  planet_uranus = loadPlanetTexture("../images/figma.png", 14, 14);
+  planet_neptune = loadPlanetTexture("../images/canva.png", 16, 16);
 
   scene.add(planet_sun);
   scene.add(planet_mercury);
