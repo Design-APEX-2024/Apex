@@ -32,14 +32,14 @@ body {
   z-index: 99;
   top: 0;
   left: 0;
-  background: #f4f7f7;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .loader img {
-  width: 50%;
+  width: 30%;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~  SCROLLBAR STYLING  ~~~~~~~~~~~~~~~~~~~~~ */
