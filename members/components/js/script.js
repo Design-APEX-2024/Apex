@@ -222,3 +222,12 @@ viewBtn.addEventListener('click', () => {
         viewBtn.textContent = 'View All';
     }
 })
+
+
+
+function loader(){
+    const preloader = document.querySelector(".loader");
+    const body = document.querySelector("body");
+    preloader.style.display = "none";
+    body.style.overflow = "visible";
+}

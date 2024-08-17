@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showWebsite() {
-    // GSAP animation for hiding the loading screen and showing the website
     gsap.fromTo(
       ".loading-page",
       { opacity: 1 },
