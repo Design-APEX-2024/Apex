@@ -250,8 +250,8 @@ input {
   transform: rotate(-45deg);
 }
 
-.pres-image {
-  animation: updown infinite linear 3.4s;
+.pres-wrapper-img {
+  animation: updown infinite linear 3s;
 }
 
 @keyframes updown {
