@@ -15,6 +15,7 @@
 
 .card {
   border-radius: 25px;
+  height: auto;
   background-color: #fff;
 }
 
@@ -23,7 +24,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 14px;
+  padding: 16px 14px;
 }
 
 .image-content {
@@ -38,7 +39,14 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: #4070f4;
+  background-image: linear-gradient(
+    to bottom,
+    #ff5f00,
+    #fa6b00,
+    #f57600,
+    #f07f07,
+    #eb8812
+  );
   border-radius: 25px 25px 0 25px;
 }
 
@@ -51,7 +59,7 @@
   height: 40px;
   z-index: 1;
   width: 40px;
-  background-color: #4070f4;
+  background-color: #eb8812;
 }
 
 .overlay::after {
@@ -66,6 +74,7 @@
   border-radius: 50%;
   background: #fff;
   padding: 3px;
+  box-shadow: 0 0 10px #000;
 }
 
 .card-image .card-img {
@@ -73,12 +82,12 @@
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #4070f4;
+  border: 4px solid #000;
 }
 
 .name {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   color: #333;
   text-align: center;
   position: relative;
@@ -96,7 +105,7 @@
   font-size: 16px;
   color: #fff;
   padding: 8px 16px;
-  background-color: #4070f4;
+  background-color: #ff5f00;
   border-radius: 6px;
   margin: 14px;
   cursor: pointer;
@@ -108,12 +117,12 @@
 }
 
 .swiper-navBtn {
-  color: #6e93f7;
+  color: #ff5f00;
   transition: color 0.3s ease;
 }
 
 .swiper-navBtn:hover {
-  color: #4070f4;
+  color: #eb8812;
 }
 
 .swiper-navBtn::before,
@@ -130,12 +139,12 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: #6e93f7;
+  background-color: #eb8812;
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #4070f4;
+  background-color: #eb8812;
 }
 
 @media screen and (max-width: 768px) {
