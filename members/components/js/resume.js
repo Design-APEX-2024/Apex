@@ -155,77 +155,22 @@ let details = [
         'src': './components/images/yug.png'
     }
 ];
-
-let searchMember = document.querySelector('#searchMember');
-let containerElement = document.querySelector('#root');
-
-let searchElement = (ele) => {
-    return details.filter((item) => {
-        return item.name.toLowerCase().includes(ele.toLowerCase());
-    })    
-}
-
-let htmlContent = (item, index) => `
-<div class="card xl:w-1/5 md:w-1/2 p-4">
-  <div class="cardContent pb-2 rounded-lg">
-    <img
-      class="h-72 rounded w-full object-cover object-center mb-6"
-      src="${item.src}"
-    />
-    <h3
-      class="tracking-widest text-white text-xs font-medium title-font pl-4"
-    >
-      ${item.designation}
-    </h3>
-    <h2
-      class="text-lg text-white font-medium title-font mb-4 pl-4"
-    >
-      ${item.name}
-    </h2>
-    <a href="resume.html?id=${index}"><button class="down">Resume</button></a>
-  </div>
-</div>
-`;
-
-let renderContent = (data) => {
-    containerElement.innerHTML = data.map(htmlContent).join('');
-}
-
-renderContent(details);
-
-searchMember.addEventListener('input', (e) => {
-    let result = searchElement(e.target.value);
-    renderContent(result);
-});
-
-
-let viewBtn = document.querySelector('.viewBtn');
-let memberContainer = document.querySelector('.memberContainer');
-let bottomBlurs = document.querySelectorAll('.bottomBlur');
-
-viewBtn.addEventListener('click', () => {
-    if(viewBtn.innerText == 'View All'){
-        memberContainer.style.height = 'auto';
-        memberContainer.style.overflow = 'visible';
-        bottomBlurs.forEach(bottomBlur => {
-            bottomBlur.style.display = 'none';
-        });
-        viewBtn.style.bottom = '-1%';
-        viewBtn.textContent = 'Hide';
-    }else{
-        memberContainer.style.height = '100vh';
-        memberContainer.style.overflow = 'hidden';
-        bottomBlurs.forEach(bottomBlur => {
-            bottomBlur.style.display = 'block';
-        });
-        viewBtn.style.bottom = '2%';
-        viewBtn.textContent = 'View All';
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+if (id !== null) {
+    const member = details[parseInt(id)];
+    
+    if (member) {
+        const resumeContent = `
+            <h1>${member.name}</h1>
+            <h2>${member.designation}</h2>
+            <img src="${member.src}" alt="${member.name}">
+            <p>Here, you can add more details like experience, education, etc.</p>
+        `;
+        document.querySelector('#resume-content').innerHTML = resumeContent;
+    } else {
+        document.querySelector('#resume-content').innerHTML = '<p>Member not found.</p>';
     }
-})
-
-function loader(){
-    const preloader = document.querySelector(".loader");
-    const body = document.querySelector("body");
-    preloader.style.display = "none";
-    body.style.overflow = "visible";
+} else {
+    document.querySelector('#resume-content').innerHTML = '<p>No member selected.</p>';
 }
