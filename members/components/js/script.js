@@ -156,6 +156,7 @@ let details = [
     }
 ];
 
+
 let searchMember = document.querySelector('#searchMember');
 let containerElement = document.querySelector('#root');
 
