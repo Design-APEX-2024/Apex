@@ -107,6 +107,10 @@ input {
   margin-bottom: 1rem;
 }
 
+.down2 {
+  margin-left: 0;
+}
+
 .down::before {
   content: "";
   width: 100%;

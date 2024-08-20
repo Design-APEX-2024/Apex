@@ -280,7 +280,7 @@ const carouselItems = [
         <div class="title">${item.title}</div>
         <div class="name">${item.name}</div>
         <div class="btn">
-          <a href="resume"><button class="down">Resume</button></a>
+          <a href="resume"><button class="down down2">Resume</button></a>
         </div>
       </div>
     `;
