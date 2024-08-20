@@ -1,3 +1,5 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MEMBER'S SCRIPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 let details = [
     {
         'name': 'Abhimanyu Tyagi',
@@ -189,7 +191,10 @@ let htmlContent = (item, index) => `
 `;
 
 let renderContent = (data) => {
-    containerElement.innerHTML = data.map(htmlContent).join('');
+    containerElement.innerHTML = data.map((item, index) => {
+        let originalIndex = details.findIndex(detail => detail.name === item.name); 
+        return htmlContent(item, originalIndex);
+    }).join('');
 }
 
 renderContent(details);
@@ -224,9 +229,123 @@ viewBtn.addEventListener('click', () => {
     }
 })
 
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LOADER SCRIPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 function loader(){
     const preloader = document.querySelector(".loader");
     const body = document.querySelector("body");
     preloader.style.display = "none";
     body.style.overflow = "visible";
 }
+
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CORE TEAM SCRIPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const carouselItems = [
+    { title: "Aman Pandey", name: "President", image: "./components/images/core/aman.png" },
+    { title: "Abhinav Singh", name: "Vice President", image: "./components/images/core/abhinav.jpg" },
+    { title: "Sumit Kumar", name: "Vice President", image: "./components/images/core/sumit.jpg" },
+    { title: "Priyanshu Sharma", name: "Secretory", image: "./components/images/core/priyanshu.jpg" },
+    { title: "Prachi", name: "Joint Secretory", image: "./components/images/core/prachi.jpg" },
+    { title: "Kashish Gupta", name: "Joint Secretory", image: "./components/images/core/kashish.jpg" },
+    { title: "Jatin Chaurasia", name: "Executive Head", image: "./components/images/core/jatin.jpg" },
+    { title: "Tanishk Kamra", name: "Executive Head", image: "./components/images/core/tanishk.jpg" },
+    { title: "Dipanshu Kalita", name: "Eagle eye", image: "./components/images/core/dipanshu.jpg" },
+    { title: "Lakshita Chawla", name: "Repository Head", image: "./components/images/core/lakshita.jpg" },
+    { title: "Ayush Tanwar", name: "3D Head", image: "./components/images/core/ayush.jpg" },
+    { title: "Sushil Kumar", name: "VFX Head", image: "./components/images/core/sushil.jpg" },
+    { title: "Kannu Krishna Sharma", name: "AI Head", image: "./components/images/core/kannu.png" },
+    { title: "Adhyan", name: "Music Prod. Head", image: "./components/images/core/adhyan.jpg" },
+    { title: "Khushi Kathuria", name: "Content Head", image: "./components/images/core/khushi.jpg" },
+    { title: "Mouli Sadana", name: "Insta Head", image: "./components/images/core/mouli.jpg" },
+    { title: "Tamanna Mukherjee", name: "Pinterest Head", image: "./components/images/core/tamanna.jpg" },
+    { title: "Pihu", name: "Pinterest Head", image: "./components/images/core/pihu.jpg" },
+    { title: "Vansh Goyal", name: "LinkedIn Head", image: "./components/images/core/vansh.jpg" },
+    { title: "Dhruv Pal", name: "Website Head", image: "./components/images/core/dhruv.png" }
+  ];
+  
+  
+  
+  const carouselList = document.getElementById('carousel-list');
+  
+  carouselItems.forEach(item => {
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('item');
+    carouselItem.style.backgroundImage = `url(${item.image})`;
+  
+    carouselItem.innerHTML = `
+      <div class="content">
+        <div class="title">${item.title}</div>
+        <div class="name">${item.name}</div>
+        <div class="btn">
+          <a href="resume"><button class="down">Resume</button></a>
+        </div>
+      </div>
+    `;
+  
+    carouselList.appendChild(carouselItem);
+  });
+  
+
+var nextBtn = document.querySelector('.next'),
+    prevBtn = document.querySelector('.prev'),
+    carousel = document.querySelector('.carousel'),
+    list = document.querySelector('.list'), 
+    item = document.querySelectorAll('.item')
+
+let timeRunning = 3000 
+let timeAutoNext = 7000
+
+nextBtn.onclick = function(){
+    showSlider('next')
+}
+
+prevBtn.onclick = function(){
+    showSlider('prev')
+}
+
+let runTimeOut 
+
+let runNextAuto = setTimeout(() => {
+    nextBtn.click()
+}, timeAutoNext)
+
+
+function resetTimeAnimation() {
+    runningTime.style.animation = 'none'
+    runningTime.offsetHeight /* trigger reflow */
+    runningTime.style.animation = null 
+    runningTime.style.animation = 'runningTime 7s linear 1 forwards'
+}
+
+
+function showSlider(type) {
+    let sliderItemsDom = list.querySelectorAll('.carousel .list .item')
+    if(type === 'next'){
+        list.appendChild(sliderItemsDom[0])
+        carousel.classList.add('next')
+    } else{
+        list.prepend(sliderItemsDom[sliderItemsDom.length - 1])
+        carousel.classList.add('prev')
+    }
+
+    clearTimeout(runTimeOut)
+
+    runTimeOut = setTimeout( () => {
+        carousel.classList.remove('next')
+        carousel.classList.remove('prev')
+    }, timeRunning)
+
+
+    clearTimeout(runNextAuto)
+    runNextAuto = setTimeout(() => {
+        nextBtn.click()
+    }, timeAutoNext)
+
+    resetTimeAnimation() // Reset the running time animation
+}
+
+// Start the initial animation 
+resetTimeAnimation()
