@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showWebsite() {
     gsap.fromTo(
-      ".loading-page",
+      ".loader",
       { opacity: 1 },
       {
         opacity: 0,
@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           preloader.style.display = "none";
           body.style.overflow = "visible";
+          document.querySelector('.landingPage').style.opacity = 1;
+          document.querySelector('.nextPage').style.opacity = 1;
         }
       }
     );
