@@ -1,5 +1,8 @@
+// loader.js
+import { startCameraAnimation } from './softwareRevolve.js'; // Import the function to start the camera animation
+
 document.addEventListener("DOMContentLoaded", () => {
-  const totalDuration = 3; // Duration for the SVG animation
+  const totalDuration = 2; // Duration for the SVG animation
   const textDelay = 1; // Delay before showing the text after SVG animation
   const svgAnimationDuration = totalDuration * 1000; // Convert to milliseconds
 
@@ -11,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       strokeDashoffset: 0,
       duration: totalDuration,
       ease: "ease-in-out",
-      onComplete: showText // Show text after SVG animation is complete
+      onComplete: showText, // Show text after SVG animation is complete
     }
   );
 
@@ -26,9 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         y: 0,
         opacity: 1,
-        duration: .8,
+        duration: 0.4,
         delay: textDelay,
-        onComplete: showWebsite // Show website after text animation is complete
+        onComplete: showWebsite, // Show website after text animation is complete
       }
     );
   }
@@ -44,12 +47,29 @@ document.addEventListener("DOMContentLoaded", () => {
         onComplete: () => {
           const preloader = document.querySelector("#loader");
           const body = document.querySelector("body");
-
           preloader.style.display = "none";
           body.style.overflow = "visible";
-          document.querySelector('.landingPage').style.opacity = 1;
-          document.querySelector('.nextPage').style.opacity = 1;
-        }
+
+          const nextPage = document.querySelector('.nextPage');
+          const landingPage = document.querySelector('.landingPage');
+
+          if (nextPage) {
+            nextPage.style.opacity = 1;
+            console.log('nextPage opacity set');
+          } else {
+            console.log('nextPage element not found');
+          }
+
+          if (landingPage) {
+            landingPage.style.opacity = 1;
+            console.log('landingPage opacity set');
+          } else {
+            console.log('landingPage element not found');
+          }
+
+          // Start the camera animation after the loader is hidden
+          startCameraAnimation();
+        },
       }
     );
   }

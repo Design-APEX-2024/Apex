@@ -165,35 +165,6 @@ function init() {
   // Restrict vertical movement
   controls.minPolarAngle = Math.PI / 3; // Minimum vertical angle (in radians)
   controls.maxPolarAngle = Math.PI / 1.5; // Maximum vertical angle (in radians)
-
-  const cameraPositions = [
-    { x: -100, y: 50, z: -100 },
-    { x: 0, y: 100, z: 0 },
-    { x: 0, y: 50, z: 100 },
-    { x: 100, y: 0, z: 0 },
-  ];
-
-  const selectedPosition =
-    cameraPositions[Math.floor(Math.random() * cameraPositions.length)];
-
-  camera.position.set(
-    selectedPosition.x,
-    selectedPosition.y,
-    selectedPosition.z
-  );
-  camera.lookAt(planet_sun.position);
-  gsap.to(camera.position, {
-    duration: 5,
-    x: 100,
-    y: 50,
-    z: 100,
-    ease: "power2.inOut",
-    onUpdate: function () {
-      camera.lookAt(planet_sun.position);
-    },
-  });
-
-  camera.position.z = 100;
 }
 
 function planetRevolver(time, speed, planet, orbitRadius) {
@@ -273,5 +244,39 @@ function animate(time) {
   renderer.render(scene, camera);
 }
 
+function startCameraAnimation() {
+  const cameraPositions = [
+    { x: -100, y: 50, z: -100 },
+    { x: 0, y: 100, z: 0 },
+    { x: 0, y: 50, z: 100 },
+    { x: 100, y: 0, z: 0 },
+  ];
+
+  const selectedPosition =
+    cameraPositions[Math.floor(Math.random() * cameraPositions.length)];
+
+  camera.position.set(
+    selectedPosition.x,
+    selectedPosition.y,
+    selectedPosition.z
+  );
+  camera.lookAt(planet_sun.position);
+  gsap.to(camera.position, {
+    duration: 5,
+    x: 100,
+    y: 50,
+    z: 100,
+    ease: "power2.inOut",
+    onUpdate: function () {
+      camera.lookAt(planet_sun.position);
+    },
+  });
+
+  camera.position.z = 100;
+}
+
 init();
 animate();
+
+
+export { startCameraAnimation };
