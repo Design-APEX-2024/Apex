@@ -199,7 +199,7 @@ if (id !== null) {
 
       <!-- Second Section -->
       <section class="p-4">
-        <h1 class="text-6xl text-[#f97316] mt-10 font-bold mb-4 text-center">Skills</h1>
+        <h1 class="text-6xl text-[#f97316] mt-10 font-bold mb-16 text-center">Skills</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           <div
             class="flex flex-col items-center p-4 border border-gray-300 rounded-lg"
@@ -232,7 +232,7 @@ if (id !== null) {
 
       <!-- Third Section -->
       <section class="p-4">
-        <h1 class="text-2xl font-bold mb-4">Works</h1>
+        <h1 class="text-6xl text-[#f97316] mt-10 font-bold mb-16 text-center">Works</h1>
         <div class="flex space-x-4">
           <img
             src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
