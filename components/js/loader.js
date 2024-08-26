@@ -1,76 +1,45 @@
-// loader.js
-import { startCameraAnimation } from './softwareRevolve.js'; // Import the function to start the camera animation
+document.addEventListener('DOMContentLoaded', function() {
+  const loader = document.getElementById('loader');
+  const svgElements = document.querySelectorAll('#loader #svg');
+  const logoName = document.querySelector('.logo-name');
+  const countingNumber = document.getElementById('counting-number');
+  let totalAnimations = svgElements.length;
+  let completedAnimations = 0;
+  let count = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const totalDuration = 2; // Duration for the SVG animation
-  const textDelay = 1; // Delay before showing the text after SVG animation
-  const svgAnimationDuration = totalDuration * 1000; // Convert to milliseconds
-
-  // GSAP animation for the SVG drawing
-  gsap.fromTo(
-    "#svg",
-    { strokeDashoffset: 4500 },
-    {
-      strokeDashoffset: 0,
-      duration: totalDuration,
-      ease: "ease-in-out",
-      onComplete: showText, // Show text after SVG animation is complete
-    }
-  );
-
-  function showText() {
-    // GSAP animation for the text after the SVG is drawn
-    gsap.fromTo(
-      ".logo-name",
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.4,
-        delay: textDelay,
-        onComplete: showWebsite, // Show website after text animation is complete
-      }
-    );
+  // Function to update the loading progress percentage
+  function updateProgress(progress) {
+    countingNumber.textContent = progress + '%';
+    count = progress;
   }
 
-  function showWebsite() {
-    gsap.fromTo(
-      ".loader",
-      { opacity: 1 },
-      {
-        opacity: 0,
-        display: "none",
-        duration: 1.5,
-        onComplete: () => {
-          const preloader = document.querySelector("#loader");
-          const body = document.querySelector("body");
-          preloader.style.display = "none";
-          body.style.overflow = "visible";
-
-          const nextPage = document.querySelector('.nextPage');
-          const landingPage = document.querySelector('.landingPage');
-
-          if (nextPage) {
-            nextPage.style.opacity = 1;
-            console.log('nextPage opacity set');
-          } else {
-            console.log('nextPage element not found');
-          }
-
-          if (landingPage) {
-            landingPage.style.opacity = 1;
-            console.log('landingPage opacity set');
-          } else {
-            console.log('landingPage element not found');
-          }
-
-          // Start the camera animation after the loader is hidden
-          startCameraAnimation();
-        },
+  // Function to simulate loading progress (for demonstration)
+  function simulateLoadingProgress() {
+    const interval = setInterval(() => {
+      if (count < 100) {
+        count++;
+        updateProgress(count);
+      } else {
+        clearInterval(interval);
+        setTimeout(() => {
+          // Fade in the logo name text after loading completes
+          logoName.style.opacity = '1';
+          setTimeout(() => {
+            // Ensure the logo name stays visible for at least 0.5 seconds
+            loader.style.opacity = '0';  // Start fading out loader
+            setTimeout(() => {
+              loader.style.visibility = 'hidden';
+              document.body.style.overflow = '';  // Re-enable scrolling (if disabled)
+            }, 500);  // Delay to ensure loader visibility hides only after fade out
+          }, 500);  // Ensure the logo name stays visible for at least 0.5 seconds
+        }, 500);  // Delay to ensure smooth transition after counting animation
       }
-    );
+    }, 50);  // Adjust the interval time (50ms) to control the speed of the loading simulation
   }
+
+  // Start the loading simulation (this should be replaced by actual loading logic)
+  simulateLoadingProgress();
+
+  // Optionally disable scrolling while loader is visible
+  document.body.style.overflow = 'hidden';
 });

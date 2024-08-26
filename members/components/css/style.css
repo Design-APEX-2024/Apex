@@ -87,6 +87,16 @@ body {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~  CARDS  ~~~~~~~~~~~~~~~~~~~~~  */
+
+.fade-in {
+  opacity: 0; /* Start hidden */
+  transition: opacity 1s ease-in-out; /* Smooth transition */
+}
+
+.loaded {
+  opacity: 1; /* Fade in */
+}
+
 .cardContent {
   background-color: rgba(255, 255, 255, 0.064);
   backdrop-filter: blur(2px);

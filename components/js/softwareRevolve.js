@@ -277,6 +277,4 @@ function startCameraAnimation() {
 
 init();
 animate();
-
-
-export { startCameraAnimation };
+startCameraAnimation();
