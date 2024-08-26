@@ -166,24 +166,25 @@ if (id !== null) {
             <!-- First Section -->
       <section class="flex">
         <!-- Left Side -->
-        <div class="w-1/3 p-4">
-          <div class="flex flex-col items-center">
+        <div class="w-1/3 p-0">
+          <div class="resumeCardleft flex flex-col items-center mx-10 rounded-xl"> 
             <img
               src=${member.src}
               alt="Profile Image"
-              class="w-64 h-96 object-cover mb-4"
+              class="w-64 h-96 object-cover mb-4 rounded-xl"
             />
-            <h1 class="text-xl font-bold">John Doe</h1>
+            <h1 class="resumeCardName1 text-xl font-bold">${member.name}</h1>
           </div>
         </div>
         <!-- Right Side -->
-        <div class="w-2/3 p-4 border-3 custom-border-orange">
-          <h1 class="text-2xl font-bold">${member.name}</h1>
-          <h3 class="text-xl font-semibold text-gray-700">
+        <div class="resumeCardRight w-2/3 p-4 border-3 custom-border-orange">
+          <h1 class="text-2xl font-bold text-[#f97316]">${member.name}</h1>
+          <h3 class="text-xl font-semibold text-gray-400">
             ${member.designation}
           </h3>
-          <h2 class="text-xl font-bold mt-4">About</h2>
-          <p class="mt-2 text-gray-600">
+          <hr class="w-1/3 mt-5 border-[#f97316]"/>
+          <h2 class="text-2xl font-bold mt-4 text-white">About</h2>
+          <p class="mt-2 text-gray-400">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit
             amet accumsan arcu. Donec in nisl urna. Proin et dictum magna, vel
             fermentum justo.
@@ -198,17 +199,32 @@ if (id !== null) {
 
       <!-- Second Section -->
       <section class="p-4">
-        <h1 class="text-2xl font-bold mb-4">Skills</h1>
+        <h1 class="text-6xl text-[#f97316] mt-10 font-bold mb-4 text-center">Skills</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           <div
             class="flex flex-col items-center p-4 border border-gray-300 rounded-lg"
           >
-            <img
-              src="path_to_skill_image.jpg"
-              alt="Skill Image"
-              class="w-16 h-16 mb-2"
-            />
-            <p class="text-sm font-medium">Skill 1</p>
+            <p class="text-sm font-medium">Video Editor</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 border border-gray-300 rounded-lg"
+          >
+            <p class="text-sm font-medium">Video Editor</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 border border-gray-300 rounded-lg"
+          >
+            <p class="text-sm font-medium">Video Editor</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 border border-gray-300 rounded-lg"
+          >
+            <p class="text-sm font-medium">Video Editor</p>
+          </div>
+          <div
+            class="flex flex-col items-center p-4 border border-gray-300 rounded-lg"
+          >
+            <p class="text-sm font-medium">Video Editor</p>
           </div>
           <!-- Repeat for other skills -->
         </div>
@@ -219,17 +235,17 @@ if (id !== null) {
         <h1 class="text-2xl font-bold mb-4">Works</h1>
         <div class="flex space-x-4">
           <img
-            src="path_to_work_image1.jpg"
+            src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Work 1"
             class="w-1/3 rounded-lg shadow-md"
           />
           <img
-            src="path_to_work_image2.jpg"
+            src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Work 2"
             class="w-1/3 rounded-lg shadow-md"
           />
           <img
-            src="path_to_work_image3.jpg"
+            src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="Work 3"
             class="w-1/3 rounded-lg shadow-md"
           />
