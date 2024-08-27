@@ -75,9 +75,46 @@ body {
   opacity: 1; /* Fade in */
 }
 
-.cardContent {
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  width: 285px;
   background-color: rgba(255, 255, 255, 0.064);
   backdrop-filter: blur(2px);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.card .memberImgContainer {
+  width: 100%;
+  height: 20rem;
+}
+
+.card .memberImgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-content {
+  padding: 16px;
+}
+.card-content h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.card-content p {
+  color: #b7b7b7;
+  font-size: 15px;
+  line-height: 1.3;
 }
 
 input {
@@ -94,8 +131,7 @@ input {
   color: #000;
   font-weight: 500;
   padding: 0.3rem 1rem;
-  border-radius: 2rem;
-  margin-left: 1rem;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 

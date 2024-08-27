@@ -23,6 +23,11 @@
   padding: 2rem;
 }
 
+.skillCard {
+  background-color: rgba(255, 255, 255, 0.064);
+  backdrop-filter: blur(2px);
+}
+
 .resumeCardName1 {
   color: #fff;
   font-weight: 500;
@@ -31,7 +36,8 @@
   border-radius: 10rem;
 }
 
-.resumeCardRight {
+.resumeMail {
+  margin-top: 2rem;
 }
 
 .resumeCardRight h1 {
@@ -40,7 +46,4 @@
 .resumeCardRight h3 {
   margin-top: 2rem;
   font-size: 2rem;
-}
-
-.resumeMainContainer {
 }
