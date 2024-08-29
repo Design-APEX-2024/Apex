@@ -89,6 +89,14 @@ body {
   box-shadow: 0 0 10px #eb8812;
   z-index: 2;
   overflow: hidden;
+  color: #fff;
+  transition: all 0.6s;
+  font-weight: 500;
+}
+
+.down:hover {
+  color: #000;
+  font-weight: 500;
 }
 
 .down::before {
@@ -122,5 +130,123 @@ body {
 
 /* ~~~~~~~~~~~~~~~~~~~  NEXT PAGE - { TESTIMONIAL CARDS }  ~~~~~~~~~~~~~~~~~~~~~ */
 /* 
- -- testi.css
+-- testi.css
 */
+
+/* ~~~~~~~~~~~~~~~~~~~  NEXT PAGE - { DISCORD }  ~~~~~~~~~~~~~~~~~~~~~ */
+
+.discord {
+  font-family: "Poppins", sans-serif;
+}
+.dsText1 {
+  background: rgb(8, 8, 8);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 8, 1) 0%,
+    rgba(52, 52, 52, 1) 74%,
+    rgba(66, 66, 66, 1) 91%,
+    rgba(94, 94, 94, 1) 100%
+  );
+}
+
+.dsText2 {
+  line-height: 1.5;
+}
+
+.dsBtn {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: ease-in-out 0.6s;
+}
+
+.dsBtn:hover {
+  color: #000;
+}
+
+.dsBtn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: -10%;
+  left: -160%;
+  border-radius: 5rem;
+  z-index: -1;
+  transition: all 0.8s;
+}
+.dsBtn:hover::before {
+  width: 150%;
+  height: 150%;
+  top: -20%;
+  left: -25%;
+}
+
+.wrapperMemberMove {
+  animation: discordMove infinite linear 80s;
+}
+
+@keyframes discordMove {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(-80%);
+  }
+}
+
+.outerDiscordMemberMove {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.outerDiscordMemberMove div img {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  border: 1px solid #f96613;
+  margin: 1rem 0;
+}
+
+#dsRedBorder {
+  border: 1px solid red;
+}
+
+.dsShift {
+  transform: translateY(-10%);
+}
+
+.mainDiscordContainer {
+  position: relative;
+}
+
+.dsOverlay {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.dsBlackShadow {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: 100px;
+  border-radius: 764px;
+  background: rgba(0, 0, 0, 0.889);
+  filter: blur(50px);
+  z-index: 3;
+}
+
+#dsBlackShadow1 {
+  top: -20%;
+}
+
+#dsBlackShadow2 {
+  bottom: -30%;
+}
