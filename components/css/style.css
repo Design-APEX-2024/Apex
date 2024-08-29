@@ -48,6 +48,41 @@ body {
   border-radius: 10px;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~  SOUND  ~~~~~~~~~~~~~~~~~~~~~  */
+.sound {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  width: auto;
+  height: 10rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.sound div {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sound h4 {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.sound div img {
+  height: 100%;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~  BACKGROUND VIDEO  ~~~~~~~~~~~~~~~~~~~~~  */
 
 .bgVideo {
