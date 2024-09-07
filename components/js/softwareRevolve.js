@@ -123,7 +123,7 @@ function init() {
   planet_venus = loadPlanetTexture("../images/illustrator.png", 5, 5);
   planet_earth = loadPlanetTexture("../images/photoshop.png", 6, 6);
   planet_mars = loadPlanetTexture("../images/davinci.png", 7, 7);
-  planet_jupiter = loadPlanetTexture("../images/blender.jpeg", 10, 10);
+  planet_jupiter = loadPlanetTexture("../images/blender.png", 10, 10);
   planet_saturn = loadPlanetTexture("../images/maya.png", 12, 12);
   planet_uranus = loadPlanetTexture("../images/figma.png", 14, 14);
   planet_neptune = loadPlanetTexture("../images/canva.png", 16, 16);
