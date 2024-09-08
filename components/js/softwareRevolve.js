@@ -22,14 +22,14 @@ let saturn_orbit_radius = 120;
 let uranus_orbit_radius = 140;
 let neptune_orbit_radius = 160;
 
-let mercury_revolution_speed = 0.3; // Slower revolution speed
-let venus_revolution_speed = 0.25; // Slower revolution speed
-let earth_revolution_speed = 0.20; // Slower revolution speed
-let mars_revolution_speed = 0.10; // Slower revolution speed
-let jupiter_revolution_speed = 0.2; // Slower revolution speed
-let saturn_revolution_speed = 0.26; // Slower revolution speed
-let uranus_revolution_speed = 0.34; // Slower revolution speed
-let neptune_revolution_speed = 0.24; // Slower revolution speed
+let mercury_revolution_speed = 0.3;
+let venus_revolution_speed = 0.25;
+let earth_revolution_speed = 0.20;
+let mars_revolution_speed = 0.10;
+let jupiter_revolution_speed = 0.2;
+let saturn_revolution_speed = 0.26;
+let uranus_revolution_speed = 0.34;
+let neptune_revolution_speed = 0.24;
 
 function createMaterialArray() {
   const skyboxImagepaths = [
@@ -49,7 +49,6 @@ function createMaterialArray() {
 
 function setSkyBox() {
   const materialArray = createMaterialArray();
-  // Original size of the skybox
   let skyboxGeo = new THREE.BoxGeometry(500, 500, 500);
   skybox = new THREE.Mesh(skyboxGeo, materialArray);
   scene.add(skybox);
@@ -58,29 +57,25 @@ function setSkyBox() {
 function loadPlanetTexture(texturePath, width, height, isSun = false) {
   let geometry;
   if (isSun) {
-    // Set width and height for the Sun's plane
     geometry = new THREE.PlaneGeometry(width, height);
   } else {
-    // Use box geometry for other planets
     geometry = new THREE.BoxGeometry(width, width, width);
   }
 
-  const texture = new THREE.TextureLoader().load(texturePath, function(texture) {
-    texture.minFilter = THREE.LinearFilter; // Ensure texture is correctly loaded
+  const texture = new THREE.TextureLoader().load(texturePath, function (texture) {
+    texture.minFilter = THREE.LinearFilter;
   });
 
   let material;
   if (isSun) {
-    // For the Sun, use a single material with transparency support
     material = new THREE.MeshBasicMaterial({
       map: texture,
       emissive: 0xffffff,
       transparent: true,
       side: THREE.DoubleSide,
-      alphaTest: 0.1 // Adjust as needed to handle semi-transparent pixels
+      alphaTest: 0.1,
     });
   } else {
-    // For other planets, use MeshBasicMaterial to avoid shadows
     material = new THREE.MeshBasicMaterial({ map: texture });
   }
 
@@ -91,11 +86,7 @@ function loadPlanetTexture(texturePath, width, height, isSun = false) {
 function createRing(innerRadius) {
   let outerRadius = innerRadius - 0.1;
   let thetaSegments = 100;
-  const geometry = new THREE.RingGeometry(
-    innerRadius,
-    outerRadius,
-    thetaSegments
-  );
+  const geometry = new THREE.RingGeometry(innerRadius, outerRadius, thetaSegments);
   const material = new THREE.MeshBasicMaterial({
     color: "#ffffff",
     side: THREE.DoubleSide,
@@ -117,7 +108,6 @@ function init() {
 
   setSkyBox();
 
-  // Adjust sizes of planets with minimal size differences
   planet_sun = loadPlanetTexture("../images/logo_2c.png", 70, 30, true);
   planet_mercury = loadPlanetTexture("../images/premierePro.png", 4, 4);
   planet_venus = loadPlanetTexture("../images/illustrator.png", 5, 5);
@@ -160,27 +150,24 @@ function init() {
 
   controls = new OrbitControls(camera, renderer.domElement);
   controls.minDistance = 40;
-  controls.maxDistance = 170; // Set maximum zoom-out distance
+  controls.maxDistance = 170;
 
-  // Restrict vertical movement
-  controls.minPolarAngle = Math.PI / 3; // Minimum vertical angle (in radians)
-  controls.maxPolarAngle = Math.PI / 1.5; // Maximum vertical angle (in radians)
+  controls.minPolarAngle = Math.PI / 3;
+  controls.maxPolarAngle = Math.PI / 1.5;
 }
 
 function planetRevolver(time, speed, planet, orbitRadius) {
   let orbitSpeedMultiplier = 0.001;
   const planetAngle = time * orbitSpeedMultiplier * speed;
-  planet.position.x =
-    planet_sun.position.x + orbitRadius * Math.cos(planetAngle);
-  planet.position.z =
-    planet_sun.position.z + orbitRadius * Math.sin(planetAngle);
+  planet.position.x = planet_sun.position.x + orbitRadius * Math.cos(planetAngle);
+  planet.position.z = planet_sun.position.z + orbitRadius * Math.sin(planetAngle);
 }
 
 function animate(time) {
   requestAnimationFrame(animate);
 
   const rotationSpeed = 0.005;
-  planet_sun.lookAt(camera.position); // Ensure Sun always faces the camera
+  planet_sun.lookAt(camera.position);
 
   planet_mercury.rotation.y += rotationSpeed;
   planet_venus.rotation.y += rotationSpeed;
@@ -191,58 +178,33 @@ function animate(time) {
   planet_uranus.rotation.y += rotationSpeed;
   planet_neptune.rotation.y += rotationSpeed;
 
-  planetRevolver(
-    time,
-    mercury_revolution_speed,
-    planet_mercury,
-    mercury_orbit_radius
-  );
-  planetRevolver(
-    time,
-    venus_revolution_speed,
-    planet_venus,
-    venus_orbit_radius
-  );
-  planetRevolver(
-    time,
-    earth_revolution_speed,
-    planet_earth,
-    earth_orbit_radius
-  );
-  planetRevolver(
-    time,
-    mars_revolution_speed,
-    planet_mars,
-    mars_orbit_radius
-  );
-  planetRevolver(
-    time,
-    jupiter_revolution_speed,
-    planet_jupiter,
-    jupiter_orbit_radius
-  );
-  planetRevolver(
-    time,
-    saturn_revolution_speed,
-    planet_saturn,
-    saturn_orbit_radius
-  );
-  planetRevolver(
-    time,
-    uranus_revolution_speed,
-    planet_uranus,
-    uranus_orbit_radius
-  );
-  planetRevolver(
-    time,
-    neptune_revolution_speed,
-    planet_neptune,
-    neptune_orbit_radius
-  );
+  planetRevolver(time, mercury_revolution_speed, planet_mercury, mercury_orbit_radius);
+  planetRevolver(time, venus_revolution_speed, planet_venus, venus_orbit_radius);
+  planetRevolver(time, earth_revolution_speed, planet_earth, earth_orbit_radius);
+  planetRevolver(time, mars_revolution_speed, planet_mars, mars_orbit_radius);
+  planetRevolver(time, jupiter_revolution_speed, planet_jupiter, jupiter_orbit_radius);
+  planetRevolver(time, saturn_revolution_speed, planet_saturn, saturn_orbit_radius);
+  planetRevolver(time, uranus_revolution_speed, planet_uranus, uranus_orbit_radius);
+  planetRevolver(time, neptune_revolution_speed, planet_neptune, neptune_orbit_radius);
+
+  const distance = camera.position.distanceTo(scene.position);
+const overlay = document.querySelector('.threeOverlay');
+
+if (distance > 169) {
+  overlay.style.zIndex = 2;
+  setTimeout(() => {
+    overlay.style.zIndex = -1;
+  }, 1000);
+
+} else {
+  overlay.style.zIndex = -1;
+}
+
 
   controls.update();
   renderer.render(scene, camera);
 }
+
 
 function startCameraAnimation() {
   const cameraPositions = [
@@ -252,14 +214,9 @@ function startCameraAnimation() {
     { x: 100, y: 0, z: 0 },
   ];
 
-  const selectedPosition =
-    cameraPositions[Math.floor(Math.random() * cameraPositions.length)];
+  const selectedPosition = cameraPositions[Math.floor(Math.random() * cameraPositions.length)];
 
-  camera.position.set(
-    selectedPosition.x,
-    selectedPosition.y,
-    selectedPosition.z
-  );
+  camera.position.set(selectedPosition.x, selectedPosition.y, selectedPosition.z);
   camera.lookAt(planet_sun.position);
   gsap.to(camera.position, {
     duration: 5,
