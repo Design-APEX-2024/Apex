@@ -1,10 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.testiSlide-container {
-  max-width: 1120px;
+.teams {
+  position: relative;
+}
+
+.deptswiper {
   width: 100%;
-  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deptSwiper-slide:not(.swiper-slide-active) {
+  filter: blur(2px);
+}
+
+.deptswiper-wrapper {
+  width: 100%;
+  height: auto;
+  padding: 5rem;
+  display: flex;
+  align-items: center;
 }
 
 .testimonial_head h1 {
@@ -21,6 +38,8 @@
 }
 
 .testiCard {
+  width: 300px;
+  height: 90%;
   border-radius: 25px;
   background-color: rgba(139, 139, 139, 0.049);
   backdrop-filter: blur(10px);
