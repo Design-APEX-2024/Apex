@@ -1,8 +1,8 @@
 var swiper = new Swiper(".deptmySwiper", {
     loop: true,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 1000,
-    autoplayHoverPause: true,
+    autoplayHoverPause: false,
 
     effect: "coverflow",
     grabCursor: true,
