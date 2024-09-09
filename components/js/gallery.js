@@ -1,20 +1,8 @@
 // Select the gallery div
 const gallery = document.querySelector(".gallery");
 
-gallery.addEventListener("mousemove", function (details) {
-  document.querySelectorAll(".carousel-item").forEach((elem) => {
-    var x = (window.innerWidth - details.clientX * 15) / 50;
-    
-    elem.style.transform = `translateX(${-x}px)`;
-  });
-});
-
-
-
-
-
 // Get all video elements inside the gallery
-const videos = gallery.querySelectorAll('video');
+const videos = gallery.querySelectorAll('.galleryVideo');
 
 // Create the Intersection Observer to detect when .gallery is in the viewport
 const observer = new IntersectionObserver(entries => {
