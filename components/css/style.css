@@ -54,14 +54,18 @@ body {
   bottom: 2%;
   right: 2%;
   width: auto;
-  height: 10rem;
+  height: auto;
+  padding: 0.8rem;
+  border-radius: 10rem;
   z-index: 999999999999;
   display: flex;
   justify-content: center;
+  background: #fff;
   align-items: center;
   gap: 1rem;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  box-shadow: 0 0 10px #f96613;
 }
 
 .sound div {
@@ -72,12 +76,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px #f96613;
 }
 
 .sound h4 {
   font-size: 1.3rem;
-  color: #fff;
+  color: #000;
+  font-weight: 600;
 }
 
 .sound div img {
