@@ -1,21 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const audio = new Audio("../images/sound/loop_2.ogg");
-    audio.loop = true;
-    audio.play();
+document.addEventListener('DOMContentLoaded', function() {
+  const backgroundMusic = new Audio('../components/images/sound/loop_3.ogg');
   
-    const soundDiv = document.querySelector(".sound");
-    const soundText = soundDiv.querySelector("h4");
+  backgroundMusic.loop = true;
+  backgroundMusic.volume = 0.3; 
   
-    function toggleSound() {
-      if (audio.paused) {
-        audio.play();
-        soundText.textContent = "Sound On";
-      } else {
-        audio.pause();
-        soundText.textContent = "Sound Off";
-      }
-    }
-  
-    soundDiv.addEventListener("click", toggleSound);
+  // play the audio
+  backgroundMusic.play().catch(error => {
+      console.log('Autoplay prevented: ', error);
   });
-  
+});

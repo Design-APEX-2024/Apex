@@ -32,7 +32,7 @@
 
   <body style="position: relative">
     <!-- /* ~~~~~~~~~~~~~~~~~~~  SOUND  ~~~~~~~~~~~~~~~~~~~~~ */ -->
-    <div class="sound">
+    <div class="sound sound-button">
       <h4>Sound On</h4>
       <div class="soundImg">
         <img src="../images/sound/soundWave.gif" alt="" />
@@ -238,7 +238,7 @@
       <!-- /* ~~~~~~~~~~~~~~~~~~~ BACKGROUND VIDEO ~~~~~~~~~~~~~~~~~~~~~ */ -->
       <div class="bgVideo">
         <video autoplay muted loop>
-          <source src="../images/bgVid.mp4" type="video/mp4" />
+          <source src="../images/bgVid.webm" type="video/mp4" />
         </video>
       </div>
 
@@ -419,8 +419,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/1.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/1.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/1.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -432,8 +431,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/2.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/2.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/2.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -468,8 +466,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/3.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/3.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/3.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -501,8 +498,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/4.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/4.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/4.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -514,8 +510,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/5.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/5.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/5.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -527,8 +522,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/6.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/6.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/6.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -540,8 +534,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/7.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/7.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/7.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -567,8 +560,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/8.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/8.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/8.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -583,8 +575,7 @@
                   preload="auto"
                   class="galleryVideo"
                 >
-                  <!-- <source src="../images/Assets/webm/9.webm" type="video/mp4" /> -->
-                  <source src="../images/Assets/mp4/9.mp4" type="video/mp4" />
+                  <source src="../images/Assets/webm/9.webm" type="video/mp4" />
                 </video>
               </div>
               <div class="image-wrapper">
@@ -624,7 +615,7 @@
               </div>
             </div>
           </div>
-          <div class="overlay-wrapper flex-wrapper">
+          <div class="overlay-wrapper flex-wrapper sound-button">
             <button>Explore</button>
           </div>
         </div>
@@ -656,7 +647,7 @@
           <h1 class="dsText2 text-6xl text-center mt-10 font-semibold">
             Be part of a <span class="text-[#ff5f00]">creative</span> community!
           </h1>
-          <a href="#"
+          <a href="#" class="sound-button"
             ><button
               class="dsBtn text-3xl flex items-center justify-center gap-5 bg-[#E27409] px-6 py-4 rounded-3xl font-semibold mt-10"
             >
@@ -1427,7 +1418,7 @@
         class="members w-full h-[25rem] flex flex-col justify-center items-center gap-10"
       >
         <h1 class="membersText">Want to meet our member's</h1>
-        <a href="../../members/index.html"
+        <a href="../../members/index.html" class="delayed-link sound-button"
           ><button
             class="down bg-orange-500 text-3xl text-black px-10 py-3 rounded-full font-semibold tracking-wider"
           >
@@ -1477,6 +1468,8 @@
     <script src="../js/sound2.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/loader2.js"></script>
+    <script src="../js/button-sound2.js"></script>
+    <script src="../js/delayedLink2.js"></script>
     <script src="../js/Slider.js"></script>
     <script src="../js/gallery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>

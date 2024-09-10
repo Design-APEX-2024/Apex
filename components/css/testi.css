@@ -6,6 +6,12 @@
   padding: 5rem 0;
 }
 
+.testimonials {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
+}
+
 .deptswiper {
   width: 100%;
   display: flex;

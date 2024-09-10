@@ -92,7 +92,7 @@
     <!-- /* ~~~~~~~~~~~~~~~~~~~ BACKGROUND VIDEO ~~~~~~~~~~~~~~~~~~~~~ */ -->
     <div class="bgVideo">
       <video autoplay muted loop>
-        <source src="./components/images/bgVid.mp4" type="video/mp4" />
+        <source src="./components/images/bgVid.webm" type="video/mp4" />
       </video>
     </div>
 
@@ -112,13 +112,34 @@
       <div
         class="container absolute w-full h-full flex justify-center items-center overflow-hidden top-0 left-0 z-bottomest"
       >
-        <img src="./components/images/1.png" class="object2 softImg softImg1" />
-        <img src="./components/images/2.png" class="object softImg softImg2" />
-        <img src="./components/images/3.png" class="object2 softImg softImg3" />
-        <img src="./components/images/4.png" class="object softImg softImg4" />
-        <img src="./components/images/5.png" class="object2 softImg softImg5" />
-        <img src="./components/images/6.png" class="object2 softImg softImg6" />
-        <img src="./components/images/7.png" class="object softImg softImg7" />
+        <img
+          src="./components/images/1.png"
+          class="object2 softImg softImg1 object-cover"
+        />
+        <img
+          src="./components/images/2.png"
+          class="object softImg softImg2 object-cover"
+        />
+        <img
+          src="./components/images/3.png"
+          class="object2 softImg softImg3 object-cover"
+        />
+        <img
+          src="./components/images/4.png"
+          class="object softImg softImg4 object-cover"
+        />
+        <img
+          src="./components/images/5.png"
+          class="object2 softImg softImg5 object-cover"
+        />
+        <img
+          src="./components/images/6.png"
+          class="object2 softImg softImg6 object-cover"
+        />
+        <img
+          src="./components/images/7.png"
+          class="object softImg softImg7 object-cover"
+        />
       </div>
       <div
         class="w-full h-v20 absolute bottom-0 flex justify-center items-center"
@@ -128,7 +149,9 @@
           role="button"
           tabindex="0"
         >
-          <a href="./components/html/nextPage.html" class="px-16 py-5 block"
+          <a
+            href="./components/html/nextPage.html"
+            class="px-16 py-5 block sound-button delayed-link"
             >EXPERIENCE APEX</a
           >
         </div>
@@ -140,6 +163,8 @@
     <script src="./components/js/sound1.js"></script>
     <script src="./components/js/apexParticleDust.js"></script>
     <script src="./components/js/cursor.js"></script>
+    <script src="./components/js/button-sound.js"></script>
+    <script src="./components/js/delayedLink.js"></script>
     <script src="./components/js/softwareMove.js"></script>
     <script
       type="text/javascript"

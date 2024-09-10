@@ -17,6 +17,9 @@
   border-radius: 25px;
   height: auto;
   background-color: #fff;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
 }
 
 .image-content,
