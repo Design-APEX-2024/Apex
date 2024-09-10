@@ -6,6 +6,7 @@ let details = [
       'email':'manyu.tyagisep21@gmail.com',
       'intro':'Abhimanyu Tyagi is a visionary graphic designer known for his innovative use of color and striking visual compositions.',
       'skills':['Canva', 'Adobe Illustrator', 'Figma'],
+      'work': ['./components/images/allWork/ABHIMANYU TIYAGI.png']
   },
   {
       'name': 'Abhishek Tiwari',
@@ -14,7 +15,7 @@ let details = [
       'email':'manyu.jaykanttiwari1212@gmail.com',
       'intro':'I am a passionate designer who likes to design different posters which can convey something ',
       'skills':['Canva', 'Adobe photoshop'],
-
+      'work': ['./components/images/allWork/ABHISHEK TIWARI.png']
   },
   {
       'name': 'Akshat',
@@ -97,15 +98,6 @@ let details = [
       'intro':'Hello myself Kushagra Rastogi currently pursuing BCA. I like to show my creativity in 3d arts.',
       'skills':['3d modelling'],
   },
-  //removed 
-  // {
-  //     'name': 'Lakshay Singh',
-  //     'designation': 'Member',
-  //     'src': './components/images/members/img2.jpg',
-  //     'email':'manyu.tyagisep21@gmail.com',
-  //     'intro':'Abhimanyu Tyagi is a visionary graphic designer known for his innovative use of color and striking visual compositions.',
-  //     'skills':['Canva', 'Adobe Illustrator', 'Figma'],
-  // },
   {
       'name': 'Mahak Preet Kaur',
       'designation': 'Member',
@@ -312,25 +304,15 @@ if (id !== null) {
 <section class="p-4">
   <h1 class="text-4xl sm:text-5xl lg:text-6xl text-[#f97316] mt-10 font-bold mb-16 text-center">Works</h1>
   <div class="flex flex-wrap justify-center space-x-4">
-    <img
-      src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ${member.work.map((work) => {
+    return `<img
+      src="${work}"
       alt="Work 1"
       class="w-full sm:w-1/2 lg:w-1/3 rounded-lg shadow-md mb-4"
-    />
-    <img
-      src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
-      alt="Work 2"
-      class="w-full sm:w-1/2 lg:w-1/3 rounded-lg shadow-md mb-4"
-    />
-    <img
-      src="https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg?auto=compress&cs=tinysrgb&w=600"
-      alt="Work 3"
-      class="w-full sm:w-1/2 lg:w-1/3 rounded-lg shadow-md mb-4"
-    />
+    />`
+  })}  
   </div>
-</section>
-
-        `;
+</section>`;
         document.querySelector('#resume-content').innerHTML = resumeContent;
     } else {
         document.querySelector('#resume-content').innerHTML = '<p>Member not found.</p>';
