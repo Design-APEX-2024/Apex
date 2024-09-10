@@ -66,6 +66,7 @@ body {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   box-shadow: 0 0 10px #f96613;
+  transition: bottom 0.5s ease;
 }
 
 .sound div {
