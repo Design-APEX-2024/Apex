@@ -7,7 +7,7 @@ function ParticleSlider(a) {
     (b.height = 20),
     (b.ptlGap = 0),
     (b.ptlSize = 0.2),
-    (b.slideDelay = 5),
+    (b.slideDelay = 1),
     (b.arrowPadding = 10),
     (b.showArrowControls = !0),
     (b.onNextSlide = null),
@@ -233,8 +233,9 @@ var psParticle = function (a) {
     (this.gravityY = 0),
     (this.x = Math.random() * a.cw),
     (this.y = Math.random() * a.ch),
-    (this.velocityX = Math.random() * 10 - 5),
-    (this.velocityY = Math.random() * 10 - 5);
+    (this.velocityX = Math.random() * 5 - 2.5), // Reduced from 10 to 5
+    (this.velocityY = Math.random() * 5 - 2.5);
+
 };
 (psParticle.prototype.move = function () {
   var a = this.ps,
@@ -246,7 +247,7 @@ var psParticle = function (a) {
       d = this.gravityY - this.y,
       e = Math.sqrt(Math.pow(c, 2) + Math.pow(d, 2)),
       f = Math.atan2(d, c),
-      g = e * 0.01;
+      g = e * 0.005; // Reduced from 0.01 to 0.005
     a.restless == !0
       ? (g += Math.random() * 0.1 - 0.05)
       : g < 0.01 &&
@@ -266,8 +267,8 @@ var psParticle = function (a) {
     } else (h = 0), (i = 0);
     (this.velocityX += g * Math.cos(f) + h * Math.cos(i)),
       (this.velocityY += g * Math.sin(f) + h * Math.sin(i)),
-      (this.velocityX *= 0.92),
-      (this.velocityY *= 0.92),
+      (this.velocityX *= 0.89),  //damping effect
+      (this.velocityY *= 0.89);
       (this.x += this.velocityX),
       (this.y += this.velocityY);
   }
