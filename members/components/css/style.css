@@ -20,6 +20,7 @@ html {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+
 body {
   width: 100%;
 }
@@ -170,7 +171,12 @@ input {
   height: 10vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, #eb8812, white);
+  background: rgb(255, 128, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 128, 0, 1) 0%,
+    rgba(249, 255, 0, 1) 100%
+  );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-family: "Anton", sans-serif;
@@ -381,7 +387,11 @@ input {
 }
 
 .memhead {
-  background: linear-gradient(180deg, #eb8812, white);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 128, 0, 1) 0%,
+    rgba(249, 255, 0, 1) 100%
+  );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-family: "Anton", sans-serif;

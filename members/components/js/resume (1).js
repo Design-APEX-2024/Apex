@@ -328,8 +328,7 @@ if (id !== null) {
     <h3 class="text-xl font-semibold text-gray-400">
       ${member.designation}
     </h3>
-    <hr class="w-1/3 mt-5 border-[#f97316]" />
-    <h2 class="text-2xl font-bold mt-4 text-white">About</h2>
+    <h2 class="text-2xl font-medium mt-4">About</h2>
     <p class="mt-2 text-gray-400">
       ${member.intro}
     </p>
@@ -341,25 +340,23 @@ if (id !== null) {
 </section>
 
 <!-- Second Section -->
-<section class="p-4">
-  <h1 class="text-4xl sm:text-5xl lg:text-6xl text-[#f97316] mt-10 font-bold mb-16 text-center">Skills</h1>
+<section class="skillSection p-4">
+  <h1 class="text-4xl sm:text-5xl lg:text-6xl mt-10 font-bold mb-16 text-center">Skills</h1>
   <div class="flex justify-center">
-  '<div class="flex flex-wrap justify-center gap-10">
-  ${member.skills.map((skill, index) => {
-    return `<div class="skillCard flex flex-col items-center p-4 border border-gray-300 rounded-lg">
-      <img src="${member.skillsImage[index]}" />
-      <p class="text-sm font-medium">${skill}</p>
-    </div>`
-  }).join('')}
-</div>'
-
-</div>
-
+    <div class="flex flex-wrap justify-center gap-6">
+      ${member.skills.map((skill, index) => {
+        return `<div class="skillCard flex flex-col items-center p-2 w-32 h-32 border border-gray-300 rounded-lg">
+          <img src="${member.skillsImage[index]}" class="w-20 h-20 object-contain mb-2 rounded-lg" />
+          <p class="text-xs font-medium text-center">${skill}</p>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>
 </section>
 
 <!-- Third Section -->
-<section class="p-4">
-  <h1 class="text-4xl sm:text-5xl lg:text-6xl text-[#f97316] mt-10 font-bold mb-16 text-center">Works</h1>
+<section class="workSection p-4">
+  <h1 class="text-4xl sm:text-5xl lg:text-6xl mt-10 font-bold mb-16 text-center">Works</h1>
   <div class="flex flex-wrap justify-center space-x-4">
   ${member.work.map((work) => {
     return `<img

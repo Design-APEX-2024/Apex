@@ -33,12 +33,12 @@ let neptune_revolution_speed = 0.24;
 
 function createMaterialArray() {
   const skyboxImagepaths = [
-    "../images/skybox/space_ft.png",
-    "../images/skybox/space_bk.png",
-    "../images/skybox/space_up.png",
-    "../images/skybox/space_dn.png",
-    "../images/skybox/space_rt.png",
-    "../images/skybox/space_lf.png",
+    "../images/softwareRevolve/skybox/space_ft.png",
+    "../images/softwareRevolve/skybox/space_bk.png",
+    "../images/softwareRevolve/skybox/space_up.png",
+    "../images/softwareRevolve/skybox/space_dn.png",
+    "../images/softwareRevolve/skybox/space_rt.png",
+    "../images/softwareRevolve/skybox/space_lf.png",
   ];
   const materialArray = skyboxImagepaths.map((image) => {
     let texture = new THREE.TextureLoader().load(image);
@@ -108,15 +108,15 @@ function init() {
 
   setSkyBox();
 
-  planet_sun = loadPlanetTexture("../images/logo_2c.png", 70, 30, true);
-  planet_mercury = loadPlanetTexture("../images/premierePro.png", 4, 4);
-  planet_venus = loadPlanetTexture("../images/illustrator.png", 5, 5);
-  planet_earth = loadPlanetTexture("../images/photoshop.png", 6, 6);
-  planet_mars = loadPlanetTexture("../images/davinci.png", 7, 7);
-  planet_jupiter = loadPlanetTexture("../images/blender.png", 10, 10);
-  planet_saturn = loadPlanetTexture("../images/maya.png", 12, 12);
-  planet_uranus = loadPlanetTexture("../images/figma.png", 14, 14);
-  planet_neptune = loadPlanetTexture("../images/canva.png", 16, 16);
+  planet_sun = loadPlanetTexture("../images/softwareRevolve/logo_2c.png", 70, 30, true);
+  planet_mercury = loadPlanetTexture("../images/softwareRevolve/premierePro.png", 4, 4);
+  planet_venus = loadPlanetTexture("../images/softwareRevolve/illustrator.png", 5, 5);
+  planet_earth = loadPlanetTexture("../images/softwareRevolve/photoshop.png", 6, 6);
+  planet_mars = loadPlanetTexture("../images/softwareRevolve/davinci.png", 7, 7);
+  planet_jupiter = loadPlanetTexture("../images/softwareRevolve/blender.png", 10, 10);
+  planet_saturn = loadPlanetTexture("../images/softwareRevolve/maya.png", 12, 12);
+  planet_uranus = loadPlanetTexture("../images/softwareRevolve/figma.png", 14, 14);
+  planet_neptune = loadPlanetTexture("../images/softwareRevolve/canva.png", 16, 16);
 
   scene.add(planet_sun);
   scene.add(planet_mercury);
