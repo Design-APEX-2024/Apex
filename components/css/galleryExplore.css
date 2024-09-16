@@ -27,10 +27,6 @@
 
 /* ~~~~~~~~~~~~~~~~~~~  APEX EXPLORE  ~~~~~~~~~~~~~~~~~~~~~  */
 
-::selection {
-  color: #fff;
-  background: #f96613;
-}
 body {
   padding: 10px;
 }
@@ -91,7 +87,7 @@ body {
 }
 
 .gallery .image {
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   padding: 7px;
 }
 .gallery .image span {
@@ -102,6 +98,7 @@ body {
 .gallery .image img {
   width: 100%;
   vertical-align: middle;
+  border-radius: 10px;
   transition: all 0.3s ease;
 }
 .gallery .image:hover img {
